@@ -9,6 +9,7 @@ import java.util.Set;
  */
 public class ListBean {
 
+    //注入集合
     private List<String> list;
 
     private Set<String> set;
