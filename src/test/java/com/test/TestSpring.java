@@ -1,6 +1,7 @@
 package com.test;
 
 import com.spring.pack07.*;
+import com.spring.pack07.service.Service;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -23,21 +24,27 @@ public class TestSpring {
         ClientService service = context.getBean(ClientService.class);
         service.sysClientService();
 
-        DI di=context.getBean(DI.class);
+        DI di = context.getBean(DI.class);
         di.testDI();
     }
 
     @Test
     public void testBean() {
-        ExampleBean di=context.getBean(ExampleBean.class);
+        ExampleBean di = context.getBean(ExampleBean.class);
         System.out.println(di.result());
     }
 
     @Test
     public void testList() {
-        ListBean di=context.getBean(ListBean.class);
+        ListBean di = context.getBean(ListBean.class);
         System.out.println(di.toList());
         System.out.println(di.toSet());
         System.out.println(di.toMap());
+    }
+
+    @Test
+    public void testService() {
+        Service service = context.getBean(Service.class);
+        System.out.println(service.service());
     }
 }

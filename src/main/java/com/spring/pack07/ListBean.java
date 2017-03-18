@@ -1,5 +1,7 @@
 package com.spring.pack07;
 
+import org.springframework.beans.factory.annotation.Required;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -9,7 +11,7 @@ import java.util.Set;
  */
 public class ListBean {
 
-    //注入集合
+    //注入List
     private List<String> list;
 
     private Set<String> set;
@@ -19,6 +21,7 @@ public class ListBean {
         return list;
     }
 
+    @Required
     public void setList(List<String> list) {
         this.list = list;
     }

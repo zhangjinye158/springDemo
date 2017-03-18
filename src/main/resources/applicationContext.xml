@@ -20,6 +20,9 @@
     http://www.springframework.org/schema/util
     http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <context:component-scan base-package="com.spring"/>
+    <context:annotation-config></context:annotation-config>
+
     <!--普通对象注入-->
     <bean id="springDemo" class="com.spring.pack07.SpringDemo">
         <property name="age" value="10"/>
@@ -71,4 +74,14 @@
 
     <!--后置bean-->
     <bean class="com.spring.pack07.post.InstantiationTracingBeanPostProcessor"/>
+
+    <!--读取属性文件-->
+    <bean id="placeholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
+
 </beans>
