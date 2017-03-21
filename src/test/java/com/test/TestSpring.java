@@ -1,10 +1,15 @@
 package com.test;
 
 import com.spring.pack07.*;
+import com.spring.pack07.properties.Env;
 import com.spring.pack07.service.Service;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
 
 /**
  * Created by zhangjinye on 2017/3/17.
@@ -46,5 +51,15 @@ public class TestSpring {
     public void testService() {
         Service service = context.getBean(Service.class);
         System.out.println(service.service());
+    }
+
+
+    //读取属性文件
+    @Test
+    public void testProperty() {
+        Env service = context.getBean(Env.class);
+        System.out.println(service.getEnv("jdbc.url"));
+
+
     }
 }

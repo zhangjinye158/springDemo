@@ -84,4 +84,7 @@
         </property>
     </bean>
 
+    <bean id="env" class="com.spring.pack07.properties.Env">
+        <property name="environment" ref="environment"/>
+    </bean>
 </beans>
