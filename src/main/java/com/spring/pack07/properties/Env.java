@@ -12,6 +12,7 @@ import org.springframework.core.env.Environment;
 @PropertySource({"classpath:/jdbc.properties"})
 public class Env {
 
+		//»·¾³
     @Autowired
     private Environment environment;
 
