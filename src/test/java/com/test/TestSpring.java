@@ -59,7 +59,5 @@ public class TestSpring {
     public void testProperty() {
         Env service = context.getBean(Env.class);
         System.out.println(service.getEnv("jdbc.url"));
-
-
     }
 }

@@ -2,6 +2,8 @@ package com.config;
 
 import com.spring.pack07.config.ApplicationConfig;
 import com.spring.pack07.config.OrderService;
+import com.spring.pack07.config.SystemTestConfig;
+import com.spring.pack07.config.Transervice;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -31,9 +33,19 @@ public class TestConfig {
                 new GenericApplicationContext();
         Environment environment = ctx.getEnvironment();
         String[] strings = environment.getActiveProfiles();
-        for (String s:strings){
+        for (String s : strings) {
             System.out.println(s);
         }
         System.out.println(strings.toString());
+    }
+
+    @Test
+    public void testImport() {
+        //读取注解配置
+        ApplicationContext annotationContext =
+                new AnnotationConfigApplicationContext(SystemTestConfig.class);
+        Transervice service = annotationContext.getBean(Transervice.class);
+        String result = service.doBuiness();
+        System.out.println(result);
     }
 }
