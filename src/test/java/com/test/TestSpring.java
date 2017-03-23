@@ -9,7 +9,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.Resource;
 import org.springframework.test.context.ContextConfiguration;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * Created by zhangjinye on 2017/3/17.
@@ -59,5 +65,14 @@ public class TestSpring {
     public void testProperty() {
         Env service = context.getBean(Env.class);
         System.out.println(service.getEnv("jdbc.url"));
+    }
+
+    //读取本地文件
+    @Test
+    public void testSource() throws IOException {
+        Resource resource = context.getResource("file:///Users/zhangjinye/Downloads/2.txt");
+        //File file=resource.getFile();
+        byte[] bytes = Files.readAllBytes(Paths.get(resource.getURI()));
+        System.out.println(new String(bytes));
     }
 }
